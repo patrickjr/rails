@@ -1,0 +1,19 @@
+<div class='c-container'>
+  <div class='box-header'>
+    <h1>Box&Ruby Console</h1>
+    <div style='position: absolute; top: 16px; right: 15px;'>
+      <%= link_to 'Sign Out', @box_user, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+  </div>
+</div>
+
+<div class='c-container'>
+<% unless @box_user.nil? %>
+  <div class='client-info'>
+    client_id: <%=@box_user.client_id %>
+  </div>
+  <div class='client-info'>
+    client_secret: <%=@box_user.client_secret %>
+  </div>
+<% end %>
+</div>

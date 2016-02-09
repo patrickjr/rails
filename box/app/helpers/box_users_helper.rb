@@ -1,0 +1,2 @@
+module BoxUsersHelper
+end

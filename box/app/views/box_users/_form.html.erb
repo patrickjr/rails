@@ -1,0 +1,11 @@
+<div class='form-container'>
+<%= form_for @box_user, :url => url_for(:controller => 'box_users', :action => 'create') do |f| %>
+
+  <%= f.text_field :client_id, :placeholder => "client id", :required => true %><br>
+
+  <%= f.text_field :client_secret, :placeholder => "client secret", :required => true %><br>
+  <!-- <div style='text-align:center;'> -->
+    <%= f.submit "Submit" %>
+  <!-- </div> -->
+<% end %>
+</div>
