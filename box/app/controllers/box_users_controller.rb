@@ -7,17 +7,19 @@ class BoxUsersController < ApplicationController
   def index
     @box_user = BoxUser.new
   end
-
+  def attributes
+    validate_session
+    unless @box_user.nil?
+      @box_user.request_file_info params[:folder_id]
+      @box_user
+    end
+  end
   def folder
     validate_session
     unless @box_user.nil?
       @box_user.request_folder params[:folder_id]
-      # get https://api.box.com/2.0/folders/FOLDER_ID \ -H "Authorization: Bearer ACCESS_TOKEN"
-      # display results
       @box_user
     end
-# curl https://api.box.com/2.0/folders/FOLDER_ID \
-# -H "Authorization: Bearer ACCESS_TOKEN"
   end
 
   def manage
@@ -88,7 +90,7 @@ class BoxUsersController < ApplicationController
       @box_user = BoxUser.get_from(session)
       if @box_user.nil?
         reset_session
-        redirect_to acition: "index"
+        redirect_to action: "index"
       end
     end
 

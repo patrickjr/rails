@@ -17,35 +17,15 @@ class BoxUser < ActiveRecord::Base
   end
 
   def request_folder(id)
-
-    uri = base_folder_url + id.to_s
-    box_auth = "Bearer" + self.access_token
-    puts self.access_token
-    request = Typhoeus::Request.new(
-      uri,
-      headers: { 
-        "WWW-Authenticate" => box_auth.to_s }
-    )
-    request.on_complete do |response|
-      if response.success?
-        puts "-------->"
-        puts 'yes'
-      elsif response.timed_out?
-        puts "-------->"
-        puts "got a time out"
-      elsif response.code == 0
-        puts "response code -------->"
-        puts response.return_message
-      else
-        puts "else -------->"
-        puts response.code.to_s
-      end
-      puts response.headers
-    end
-    request.run
-    puts '-----> fail'
+    @file_names ||= []
+    response = send_folder_request(base_folder_url, id)
+    handle_response(response.body)
   end
-# https://api.box.com/2.0/folders/FOLDER_ID \
+  def request_file_info(id)
+    @file ||= {}
+    response = send_folder_request(base_file_url, id)
+    get_file_attributes(response.body)
+  end
 
   def oauth_url
     @oauth_url = base_url+RESPONSETYPE+EQ+response_type+AMP+REDIRECTURI+EQ+redirect_uri+AMP
@@ -70,6 +50,13 @@ class BoxUser < ActiveRecord::Base
     }
   end
 
+  def file
+    @file
+  end
+  def file_names
+    @file_names
+  end
+
   private
 
   def self.validate_box_user(user)
@@ -88,6 +75,41 @@ class BoxUser < ActiveRecord::Base
     end
   end
 
+
+  def send_folder_request(base_url, id)
+    uri = URI.parse(base_url + id.to_s)
+    request = Net::HTTP::Get.new(uri.request_uri)
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = true
+    request.add_field('Authorization', "Bearer #{self.access_token}")
+    response = http.request(request)
+  end
+
+  def get_file_attributes(data)
+    json = JSON.parse_nil(data)
+    unless json.nil?
+      @file = json
+    end
+  end
+
+  def handle_response(body)
+    json = JSON.parse_nil(body)
+    unless json.nil?
+      # puts JSON.pretty_generate(json)
+      item_collection = json["item_collection"]
+      if item_collection["total_count"] > 0
+        entries = item_collection["entries"]
+        entries.each do |entry|
+          if entry["type"] == "folder"
+            request_folder(entry["id"])
+          else
+            @file_names << {name: entry["name"], id: entry["id"] }
+          end
+        end
+      end
+    end
+  end
+
   def base_url
     @base_url = "https://app.box.com/api/oauth2/authorize?"
   end
@@ -97,7 +119,7 @@ class BoxUser < ActiveRecord::Base
   end
 
   def redirect_uri
-    @redirect_uri = "http://127.0.0.1:3000/box_users/oauth/validate/" + self.id.to_s
+    @redirect_uri = "http://localhost:3000/box_users/oauth/validate/" + self.id.to_s
   end
 
   def state
@@ -116,9 +138,18 @@ class BoxUser < ActiveRecord::Base
     @base_folder_url = "https://api.box.com/2.0/folders/"
   end
 
+  def base_file_url
+    @base_file_url = "https://api.box.com/2.0/files/"
+  end
+
 
 end
 # GET https://app.box.com/api/oauth2/authorize?response_type=code&client_id=MY_CLIENT_ID&state=security_token%3DKnhMJatFipTAnM0nHlZA
 
 
 
+module JSON
+  def self.parse_nil(json)
+    JSON.parse(json) if json && json.length >= 2
+  end
+end

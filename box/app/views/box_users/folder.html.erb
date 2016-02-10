@@ -1,0 +1,20 @@
+
+<div class='c-container'>
+  <div class='box-header'>
+    <h1>Box&Ruby Console</h1>
+  </div>
+</div>
+
+<div class='c-container'>
+  <% unless @box_user.nil? %>
+
+  <div class='c-file-header'>
+    <h4>List of Files</h4>
+  </div>
+    <% @box_user.file_names.each do |file| %>
+      <div class='c-file' style='padding-bottom: 10px;'>
+        <a href="/box_users/manage/<%=@box_user.id%>/folder/attributes/<%= file[:id] %>"><%= file[:name] %></a>
+      </div>  
+    <% end %>
+  <% end %>
+</div>

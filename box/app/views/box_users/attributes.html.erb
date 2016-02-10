@@ -1,0 +1,17 @@
+<div class='c-container'>
+  <div class='box-header'>
+    <h1>Box&Ruby Console</h1>
+  </div>
+</div>
+
+<div class='c-container'>
+  <% unless @box_user.nil? %>
+
+  <div class='c-file-header'>
+    <h4>File Info</h4>
+  </div>
+  <div class='c-file-info'>
+   <pre><%= JSON.pretty_generate(@box_user.file) %></pre>
+  </div>
+  <% end %>
+</div>
