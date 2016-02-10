@@ -25674,3 +25674,894 @@ Processing by BoxUsersController#attributes as HTML
   [1m[36mBoxUser Load (0.1ms)[0m  [1mSELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1[0m  [["id", 43], ["client_index", "Ljrrn7e09LT51eR20Fsw2SjWYMF0MlY9DdQaCdGUl9nDGZphJaA8QyuEn5arMmM4Jo-IhuppG8mfimdAksCiLQ"]]
   Rendered box_users/attributes.html.erb within layouts/application (0.2ms)
 Completed 200 OK in 266ms (Views: 5.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-10 01:27:49 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by BoxUsersController#index as HTML
+  [1m[35mBoxUser Load (0.1ms)[0m  SELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" IS NULL AND "box_users"."client_index" IS NULL  ORDER BY "box_users"."id" ASC LIMIT 1
+  Rendered box_users/_form.html.erb (4.2ms)
+  Rendered box_users/index.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 144ms (Views: 132.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-02-10 01:27:49 -0800
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for 127.0.0.1 at 2016-02-10 01:27:49 -0800
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for 127.0.0.1 at 2016-02-10 01:27:49 -0800
+
+
+Started GET "/assets/box_users.self-2a74623a31f315991e6c5316417a214b02cf3cea357432f2b7ad2ee5dd0f6d39.css?body=1" for 127.0.0.1 at 2016-02-10 01:27:49 -0800
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2016-02-10 01:27:49 -0800
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-02-10 01:27:49 -0800
+
+
+Started POST "/box_users" for 127.0.0.1 at 2016-02-10 01:27:55 -0800
+Processing by BoxUsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lFFmJx+crGjrSm/jF24i0KI8WOA/1mPwER+D5BdYjh9STuFHciSbqStbLiB1qdVLjZhUaT7ltjHcuKWwexwrpQ==", "box_user"=>{"client_id"=>"88rdsgt80wz1xint4fj9nze08ytu0pv9", "client_secret"=>"1TCbl4ijHsdOGVOdQYdSUKRsVLDuvvQ8"}, "commit"=>"Submit"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "box_users" ("client_id", "client_secret", "client_index", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["client_id", "88rdsgt80wz1xint4fj9nze08ytu0pv9"], ["client_secret", "1TCbl4ijHsdOGVOdQYdSUKRsVLDuvvQ8"], ["client_index", "pQtaIgaNPG_PjWi419IiCyhVzKDouQpHMltq0tMdlyh3MiZwcPktqvaEVWRxtBbP_0IcL2Tfxr3hqt1Z6uZF_A"], ["created_at", "2016-02-10 09:27:55.570953"], ["updated_at", "2016-02-10 09:27:55.570953"]]
+  [1m[36m (38.6ms)[0m  [1mcommit transaction[0m
+Redirected to https://app.box.com/api/oauth2/authorize?response_type=code&redirect_uri=http://localhost:3000/box_users/oauth/validate/44&client_id=88rdsgt80wz1xint4fj9nze08ytu0pv9&state=pQtaIgaNPG_PjWi419IiCyhVzKDouQpHMltq0tMdlyh3MiZwcPktqvaEVWRxtBbP_0IcL2Tfxr3hqt1Z6uZF_A
+Completed 302 Found in 42ms (ActiveRecord: 38.9ms)
+
+
+Started GET "/box_users/oauth/validate/44?state=pQtaIgaNPG_PjWi419IiCyhVzKDouQpHMltq0tMdlyh3MiZwcPktqvaEVWRxtBbP_0IcL2Tfxr3hqt1Z6uZF_A&code=RZQ8d1mhstDrykhPSiIlq5TDe8zBFnRO" for 127.0.0.1 at 2016-02-10 01:28:07 -0800
+Processing by BoxUsersController#oauth_validate as HTML
+  Parameters: {"state"=>"pQtaIgaNPG_PjWi419IiCyhVzKDouQpHMltq0tMdlyh3MiZwcPktqvaEVWRxtBbP_0IcL2Tfxr3hqt1Z6uZF_A", "code"=>"RZQ8d1mhstDrykhPSiIlq5TDe8zBFnRO", "id"=>"44"}
+  [1m[35mBoxUser Load (0.1ms)[0m  SELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1  [["id", 44], ["client_index", "pQtaIgaNPG_PjWi419IiCyhVzKDouQpHMltq0tMdlyh3MiZwcPktqvaEVWRxtBbP_0IcL2Tfxr3hqt1Z6uZF_A"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1[0m  [["id", "44"], ["client_index", "pQtaIgaNPG_PjWi419IiCyhVzKDouQpHMltq0tMdlyh3MiZwcPktqvaEVWRxtBbP_0IcL2Tfxr3hqt1Z6uZF_A"]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mUPDATE "box_users" SET "access_token" = ?, "updated_at" = ? WHERE "box_users"."id" = ?[0m  [["access_token", "ey04TiNphRspSTVotA3ZpG7NzZb6RaUx"], ["updated_at", "2016-02-10 09:28:07.479317"], ["id", 44]]
+  [1m[35m (26.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 446ms (ActiveRecord: 27.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-10 01:28:07 -0800
+Processing by BoxUsersController#index as HTML
+  [1m[36mBoxUser Load (0.2ms)[0m  [1mSELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1[0m  [["id", 44], ["client_index", "pQtaIgaNPG_PjWi419IiCyhVzKDouQpHMltq0tMdlyh3MiZwcPktqvaEVWRxtBbP_0IcL2Tfxr3hqt1Z6uZF_A"]]
+Redirected to http://localhost:3000/box_users/manage/44
+Filter chain halted as :check_session rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/box_users/manage/44" for 127.0.0.1 at 2016-02-10 01:28:07 -0800
+Processing by BoxUsersController#manage as HTML
+  Parameters: {"id"=>"44"}
+  [1m[35mBoxUser Load (0.1ms)[0m  SELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1  [["id", 44], ["client_index", "pQtaIgaNPG_PjWi419IiCyhVzKDouQpHMltq0tMdlyh3MiZwcPktqvaEVWRxtBbP_0IcL2Tfxr3hqt1Z6uZF_A"]]
+  Rendered box_users/manage.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 24ms (Views: 18.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/box_users/manage/44/folder/0" for 127.0.0.1 at 2016-02-10 01:28:10 -0800
+Processing by BoxUsersController#folder as HTML
+  Parameters: {"id"=>"44", "folder_id"=>"0"}
+  [1m[36mBoxUser Load (0.1ms)[0m  [1mSELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1[0m  [["id", 44], ["client_index", "pQtaIgaNPG_PjWi419IiCyhVzKDouQpHMltq0tMdlyh3MiZwcPktqvaEVWRxtBbP_0IcL2Tfxr3hqt1Z6uZF_A"]]
+  Rendered box_users/folder.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 552ms (Views: 18.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/box_users/manage/44/folder/attributes/52781718201" for 127.0.0.1 at 2016-02-10 01:28:12 -0800
+Processing by BoxUsersController#attributes as HTML
+  Parameters: {"id"=>"44", "folder_id"=>"52781718201"}
+  [1m[35mBoxUser Load (0.1ms)[0m  SELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1  [["id", 44], ["client_index", "pQtaIgaNPG_PjWi419IiCyhVzKDouQpHMltq0tMdlyh3MiZwcPktqvaEVWRxtBbP_0IcL2Tfxr3hqt1Z6uZF_A"]]
+  Rendered box_users/attributes.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 257ms (Views: 12.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/box_users/manage/44/folder/attributes/52781701553" for 127.0.0.1 at 2016-02-10 01:28:19 -0800
+Processing by BoxUsersController#attributes as HTML
+  Parameters: {"id"=>"44", "folder_id"=>"52781701553"}
+  [1m[36mBoxUser Load (0.1ms)[0m  [1mSELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1[0m  [["id", 44], ["client_index", "pQtaIgaNPG_PjWi419IiCyhVzKDouQpHMltq0tMdlyh3MiZwcPktqvaEVWRxtBbP_0IcL2Tfxr3hqt1Z6uZF_A"]]
+  Rendered box_users/attributes.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 232ms (Views: 13.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/box_users/manage/23/folder/0" for 127.0.0.1 at 2016-02-10 01:28:33 -0800
+Processing by BoxUsersController#folder as HTML
+  Parameters: {"id"=>"23", "folder_id"=>"0"}
+  [1m[35mBoxUser Load (0.2ms)[0m  SELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1  [["id", 44], ["client_index", "pQtaIgaNPG_PjWi419IiCyhVzKDouQpHMltq0tMdlyh3MiZwcPktqvaEVWRxtBbP_0IcL2Tfxr3hqt1Z6uZF_A"]]
+  Rendered box_users/folder.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 544ms (Views: 8.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/box_users/manage/2/folder/0" for 127.0.0.1 at 2016-02-10 01:28:42 -0800
+Processing by BoxUsersController#folder as HTML
+  Parameters: {"id"=>"2", "folder_id"=>"0"}
+  [1m[36mBoxUser Load (0.1ms)[0m  [1mSELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1[0m  [["id", 44], ["client_index", "pQtaIgaNPG_PjWi419IiCyhVzKDouQpHMltq0tMdlyh3MiZwcPktqvaEVWRxtBbP_0IcL2Tfxr3hqt1Z6uZF_A"]]
+  Rendered box_users/folder.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 460ms (Views: 5.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/box_users/manage/2/folder/0" for 127.0.0.1 at 2016-02-10 01:28:45 -0800
+Processing by BoxUsersController#folder as HTML
+  Parameters: {"id"=>"2", "folder_id"=>"0"}
+  [1m[35mBoxUser Load (0.1ms)[0m  SELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1  [["id", 44], ["client_index", "pQtaIgaNPG_PjWi419IiCyhVzKDouQpHMltq0tMdlyh3MiZwcPktqvaEVWRxtBbP_0IcL2Tfxr3hqt1Z6uZF_A"]]
+  Rendered box_users/folder.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 507ms (Views: 5.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/box_users.self-2a74623a31f315991e6c5316417a214b02cf3cea357432f2b7ad2ee5dd0f6d39.css?body=1" for 127.0.0.1 at 2016-02-10 01:28:45 -0800
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-02-10 01:28:45 -0800
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for 127.0.0.1 at 2016-02-10 01:28:45 -0800
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-02-10 01:28:45 -0800
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for 127.0.0.1 at 2016-02-10 01:28:45 -0800
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2016-02-10 01:28:45 -0800
+
+
+Started GET "/box_users/manage/2/folder/0" for 127.0.0.1 at 2016-02-10 01:28:48 -0800
+Processing by BoxUsersController#folder as HTML
+  Parameters: {"id"=>"2", "folder_id"=>"0"}
+  [1m[36mBoxUser Load (0.1ms)[0m  [1mSELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1[0m  [["id", 44], ["client_index", "pQtaIgaNPG_PjWi419IiCyhVzKDouQpHMltq0tMdlyh3MiZwcPktqvaEVWRxtBbP_0IcL2Tfxr3hqt1Z6uZF_A"]]
+  Rendered box_users/folder.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 1533ms (Views: 5.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/box_users.self-2a74623a31f315991e6c5316417a214b02cf3cea357432f2b7ad2ee5dd0f6d39.css?body=1" for 127.0.0.1 at 2016-02-10 01:28:50 -0800
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for 127.0.0.1 at 2016-02-10 01:28:50 -0800
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-02-10 01:28:50 -0800
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for 127.0.0.1 at 2016-02-10 01:28:50 -0800
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-02-10 01:28:50 -0800
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2016-02-10 01:28:50 -0800
+
+
+Started GET "/box_users/manage/44/folder/attributes/52781705709" for 127.0.0.1 at 2016-02-10 01:28:52 -0800
+Processing by BoxUsersController#attributes as HTML
+  Parameters: {"id"=>"44", "folder_id"=>"52781705709"}
+  [1m[35mBoxUser Load (0.1ms)[0m  SELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1  [["id", 44], ["client_index", "pQtaIgaNPG_PjWi419IiCyhVzKDouQpHMltq0tMdlyh3MiZwcPktqvaEVWRxtBbP_0IcL2Tfxr3hqt1Z6uZF_A"]]
+  Rendered box_users/attributes.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 215ms (Views: 5.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/box_users/manage/44/folder/attributes/52781718201" for 127.0.0.1 at 2016-02-10 01:28:56 -0800
+Processing by BoxUsersController#attributes as HTML
+  Parameters: {"id"=>"44", "folder_id"=>"52781718201"}
+  [1m[36mBoxUser Load (0.1ms)[0m  [1mSELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1[0m  [["id", 44], ["client_index", "pQtaIgaNPG_PjWi419IiCyhVzKDouQpHMltq0tMdlyh3MiZwcPktqvaEVWRxtBbP_0IcL2Tfxr3hqt1Z6uZF_A"]]
+  Rendered box_users/attributes.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 244ms (Views: 16.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-10 01:30:00 -0800
+Processing by BoxUsersController#index as HTML
+  [1m[35mBoxUser Load (0.2ms)[0m  SELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" IS NULL AND "box_users"."client_index" IS NULL  ORDER BY "box_users"."id" ASC LIMIT 1
+  Rendered box_users/_form.html.erb (0.5ms)
+  Rendered box_users/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/box_users" for 127.0.0.1 at 2016-02-10 01:30:06 -0800
+Processing by BoxUsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/qUmMhblfa87z1/75NkJIGwPPHABbwEh64nQyfsJyxfOo+1cNEddNB2X6wj143y+JI9d05lQoUgkW+n7ZknfsQ==", "box_user"=>{"client_id"=>"88rdsgt80wz1xint4fj9nze08ytu0pv9", "client_secret"=>"1TCbl4ijHsdOGVOdQYdSUKRsVLDuvvQ8"}, "commit"=>"Submit"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "box_users" ("client_id", "client_secret", "client_index", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["client_id", "88rdsgt80wz1xint4fj9nze08ytu0pv9"], ["client_secret", "1TCbl4ijHsdOGVOdQYdSUKRsVLDuvvQ8"], ["client_index", "AEkJnClmcrP90SP2FvECgQlpunWtX7BkFbzyCMv2L_84lxheXqoCGcd7336muJn8UIw3SfDwSsll89ew4SQrJg"], ["created_at", "2016-02-10 09:30:06.746930"], ["updated_at", "2016-02-10 09:30:06.746930"]]
+  [1m[36m (46.7ms)[0m  [1mcommit transaction[0m
+Redirected to https://app.box.com/api/oauth2/authorize?response_type=code&redirect_uri=http://localhost:3000/box_users/oauth/validate/45&client_id=88rdsgt80wz1xint4fj9nze08ytu0pv9&state=AEkJnClmcrP90SP2FvECgQlpunWtX7BkFbzyCMv2L_84lxheXqoCGcd7336muJn8UIw3SfDwSsll89ew4SQrJg
+Completed 302 Found in 48ms (ActiveRecord: 46.9ms)
+
+
+Started GET "/box_users/oauth/validate/45?state=AEkJnClmcrP90SP2FvECgQlpunWtX7BkFbzyCMv2L_84lxheXqoCGcd7336muJn8UIw3SfDwSsll89ew4SQrJg&code=qqjRsxfnktLPyeNjIkkv5er7ZHiwEUvU" for 127.0.0.1 at 2016-02-10 01:30:09 -0800
+Processing by BoxUsersController#oauth_validate as HTML
+  Parameters: {"state"=>"AEkJnClmcrP90SP2FvECgQlpunWtX7BkFbzyCMv2L_84lxheXqoCGcd7336muJn8UIw3SfDwSsll89ew4SQrJg", "code"=>"qqjRsxfnktLPyeNjIkkv5er7ZHiwEUvU", "id"=>"45"}
+  [1m[35mBoxUser Load (0.1ms)[0m  SELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1  [["id", 45], ["client_index", "AEkJnClmcrP90SP2FvECgQlpunWtX7BkFbzyCMv2L_84lxheXqoCGcd7336muJn8UIw3SfDwSsll89ew4SQrJg"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1[0m  [["id", "45"], ["client_index", "AEkJnClmcrP90SP2FvECgQlpunWtX7BkFbzyCMv2L_84lxheXqoCGcd7336muJn8UIw3SfDwSsll89ew4SQrJg"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "box_users" SET "access_token" = ?, "updated_at" = ? WHERE "box_users"."id" = ?[0m  [["access_token", "OZ9oL7AxN19WlRbAtcYyHO6Cr2hjr39k"], ["updated_at", "2016-02-10 09:30:09.813522"], ["id", 45]]
+  [1m[35m (23.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 482ms (ActiveRecord: 24.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-10 01:30:09 -0800
+Processing by BoxUsersController#index as HTML
+  [1m[36mBoxUser Load (0.1ms)[0m  [1mSELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1[0m  [["id", 45], ["client_index", "AEkJnClmcrP90SP2FvECgQlpunWtX7BkFbzyCMv2L_84lxheXqoCGcd7336muJn8UIw3SfDwSsll89ew4SQrJg"]]
+Redirected to http://localhost:3000/box_users/manage/45
+Filter chain halted as :check_session rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/box_users/manage/45" for 127.0.0.1 at 2016-02-10 01:30:09 -0800
+Processing by BoxUsersController#manage as HTML
+  Parameters: {"id"=>"45"}
+  [1m[35mBoxUser Load (0.1ms)[0m  SELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1  [["id", 45], ["client_index", "AEkJnClmcrP90SP2FvECgQlpunWtX7BkFbzyCMv2L_84lxheXqoCGcd7336muJn8UIw3SfDwSsll89ew4SQrJg"]]
+  Rendered box_users/manage.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/box_users/manage/45/folder/0" for 127.0.0.1 at 2016-02-10 01:30:10 -0800
+Processing by BoxUsersController#folder as HTML
+  Parameters: {"id"=>"45", "folder_id"=>"0"}
+  [1m[36mBoxUser Load (0.2ms)[0m  [1mSELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1[0m  [["id", 45], ["client_index", "AEkJnClmcrP90SP2FvECgQlpunWtX7BkFbzyCMv2L_84lxheXqoCGcd7336muJn8UIw3SfDwSsll89ew4SQrJg"]]
+  Rendered box_users/folder.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 571ms (Views: 6.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/box_users/manage/45/folder/attributes/52781718201" for 127.0.0.1 at 2016-02-10 01:30:12 -0800
+Processing by BoxUsersController#attributes as HTML
+  Parameters: {"id"=>"45", "folder_id"=>"52781718201"}
+  [1m[35mBoxUser Load (0.2ms)[0m  SELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1  [["id", 45], ["client_index", "AEkJnClmcrP90SP2FvECgQlpunWtX7BkFbzyCMv2L_84lxheXqoCGcd7336muJn8UIw3SfDwSsll89ew4SQrJg"]]
+  Rendered box_users/attributes.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 231ms (Views: 11.5ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/box_users/45" for 127.0.0.1 at 2016-02-10 01:30:20 -0800
+Processing by BoxUsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"GZdNCbrGgNp41I7fQAKWK58cDoh66uSrWzoovvYgAUkpkYZnmGSgQV6MOixROOO115xvK+LVRMKU6BGMa2AV7w==", "id"=>"45"}
+  [1m[36mBoxUser Load (0.1ms)[0m  [1mSELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? LIMIT 1[0m  [["id", 45]]
+  [1m[35mBoxUser Load (0.0ms)[0m  SELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1  [["id", 45], ["client_index", "AEkJnClmcrP90SP2FvECgQlpunWtX7BkFbzyCMv2L_84lxheXqoCGcd7336muJn8UIw3SfDwSsll89ew4SQrJg"]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "box_users" WHERE "box_users"."id" = ?  [["id", 45]]
+  [1m[36m (25.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 29ms (ActiveRecord: 26.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-10 01:30:20 -0800
+Processing by BoxUsersController#index as HTML
+  [1m[35mBoxUser Load (0.1ms)[0m  SELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1  [["id", 45], ["client_index", "AEkJnClmcrP90SP2FvECgQlpunWtX7BkFbzyCMv2L_84lxheXqoCGcd7336muJn8UIw3SfDwSsll89ew4SQrJg"]]
+  Rendered box_users/_form.html.erb (0.5ms)
+  Rendered box_users/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-10 09:10:13 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by BoxUsersController#index as HTML
+  [1m[35mBoxUser Load (0.3ms)[0m  SELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" IS NULL AND "box_users"."client_index" IS NULL  ORDER BY "box_users"."id" ASC LIMIT 1
+  Rendered box_users/_form.html.erb (7.0ms)
+  Rendered box_users/index.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 166ms (Views: 152.9ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/box_users" for 127.0.0.1 at 2016-02-10 09:10:20 -0800
+Processing by BoxUsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8qiihXF72oIm8L1i6wKNXMx5UAXlGhVMfNkUERnezgQXQFVdPkW7hwRXvVoIm+QxTM/fzE4p0+L/Kmmsmb8hPA==", "box_user"=>{"client_id"=>"88rdsgt80wz1xint4fj9nze08ytu0pv9", "client_secret"=>"1TCbl4ijHsdOGVOdQYdSUKRsVLDuvvQ8"}, "commit"=>"Submit"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "box_users" ("client_id", "client_secret", "client_index", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["client_id", "88rdsgt80wz1xint4fj9nze08ytu0pv9"], ["client_secret", "1TCbl4ijHsdOGVOdQYdSUKRsVLDuvvQ8"], ["client_index", "LNObI7dmL6nqUcyYy3ajwFNHmpholj4cB9JnfVo_JEOSfu7NoITsTcloF-8X_M5uOQ03u1JaTyWpUpJSXpCTDg"], ["created_at", "2016-02-10 17:10:20.014372"], ["updated_at", "2016-02-10 17:10:20.014372"]]
+  [1m[36m (31.5ms)[0m  [1mcommit transaction[0m
+Redirected to https://app.box.com/api/oauth2/authorize?response_type=code&redirect_uri=http://localhost:3000/box_users/oauth/validate/46&client_id=88rdsgt80wz1xint4fj9nze08ytu0pv9&state=LNObI7dmL6nqUcyYy3ajwFNHmpholj4cB9JnfVo_JEOSfu7NoITsTcloF-8X_M5uOQ03u1JaTyWpUpJSXpCTDg
+Completed 302 Found in 41ms (ActiveRecord: 32.3ms)
+
+
+Started GET "/box_users/oauth/validate/46?state=LNObI7dmL6nqUcyYy3ajwFNHmpholj4cB9JnfVo_JEOSfu7NoITsTcloF-8X_M5uOQ03u1JaTyWpUpJSXpCTDg&code=EjI010bCj3gqJfxpbaRUjdWeFwwDCObJ" for 127.0.0.1 at 2016-02-10 09:10:23 -0800
+Processing by BoxUsersController#oauth_validate as HTML
+  Parameters: {"state"=>"LNObI7dmL6nqUcyYy3ajwFNHmpholj4cB9JnfVo_JEOSfu7NoITsTcloF-8X_M5uOQ03u1JaTyWpUpJSXpCTDg", "code"=>"EjI010bCj3gqJfxpbaRUjdWeFwwDCObJ", "id"=>"46"}
+  [1m[35mBoxUser Load (0.2ms)[0m  SELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1  [["id", 46], ["client_index", "LNObI7dmL6nqUcyYy3ajwFNHmpholj4cB9JnfVo_JEOSfu7NoITsTcloF-8X_M5uOQ03u1JaTyWpUpJSXpCTDg"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1[0m  [["id", "46"], ["client_index", "LNObI7dmL6nqUcyYy3ajwFNHmpholj4cB9JnfVo_JEOSfu7NoITsTcloF-8X_M5uOQ03u1JaTyWpUpJSXpCTDg"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "box_users" SET "access_token" = ?, "updated_at" = ? WHERE "box_users"."id" = ?[0m  [["access_token", "Wt4JjUkQN3Xbdcak1g2NymsFeznXcmo5"], ["updated_at", "2016-02-10 17:10:23.706087"], ["id", 46]]
+  [1m[35m (25.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 476ms (ActiveRecord: 26.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-10 09:10:23 -0800
+Processing by BoxUsersController#index as HTML
+  [1m[36mBoxUser Load (0.1ms)[0m  [1mSELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1[0m  [["id", 46], ["client_index", "LNObI7dmL6nqUcyYy3ajwFNHmpholj4cB9JnfVo_JEOSfu7NoITsTcloF-8X_M5uOQ03u1JaTyWpUpJSXpCTDg"]]
+Redirected to http://localhost:3000/box_users/manage/46
+Filter chain halted as :check_session rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/box_users/manage/46" for 127.0.0.1 at 2016-02-10 09:10:23 -0800
+Processing by BoxUsersController#manage as HTML
+  Parameters: {"id"=>"46"}
+  [1m[35mBoxUser Load (0.1ms)[0m  SELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1  [["id", 46], ["client_index", "LNObI7dmL6nqUcyYy3ajwFNHmpholj4cB9JnfVo_JEOSfu7NoITsTcloF-8X_M5uOQ03u1JaTyWpUpJSXpCTDg"]]
+  Rendered box_users/manage.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/box_users/manage/46/folder/0" for 127.0.0.1 at 2016-02-10 09:10:25 -0800
+Processing by BoxUsersController#folder as HTML
+  Parameters: {"id"=>"46", "folder_id"=>"0"}
+  [1m[36mBoxUser Load (0.1ms)[0m  [1mSELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1[0m  [["id", 46], ["client_index", "LNObI7dmL6nqUcyYy3ajwFNHmpholj4cB9JnfVo_JEOSfu7NoITsTcloF-8X_M5uOQ03u1JaTyWpUpJSXpCTDg"]]
+  Rendered box_users/folder.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 664ms (Views: 16.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/box_users/manage/46/folder/attributes/52781698701" for 127.0.0.1 at 2016-02-10 09:10:27 -0800
+Processing by BoxUsersController#attributes as HTML
+  Parameters: {"id"=>"46", "folder_id"=>"52781698701"}
+  [1m[35mBoxUser Load (0.9ms)[0m  SELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1  [["id", 46], ["client_index", "LNObI7dmL6nqUcyYy3ajwFNHmpholj4cB9JnfVo_JEOSfu7NoITsTcloF-8X_M5uOQ03u1JaTyWpUpJSXpCTDg"]]
+  Rendered box_users/attributes.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 305ms (Views: 18.0ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/box_users/46" for 127.0.0.1 at 2016-02-10 09:10:40 -0800
+Processing by BoxUsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"NIXkp7zMinwIKUWVY4z13lX+CxUWy2TV+0V5nXURKrvRbRN/8/LreSqORa2AFZyz1UiE3L34ont4tgQg9XDFgw==", "id"=>"46"}
+  [1m[36mBoxUser Load (0.1ms)[0m  [1mSELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? LIMIT 1[0m  [["id", 46]]
+  [1m[35mBoxUser Load (0.0ms)[0m  SELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1  [["id", 46], ["client_index", "LNObI7dmL6nqUcyYy3ajwFNHmpholj4cB9JnfVo_JEOSfu7NoITsTcloF-8X_M5uOQ03u1JaTyWpUpJSXpCTDg"]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "box_users" WHERE "box_users"."id" = ?  [["id", 46]]
+  [1m[36m (24.5ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 29ms (ActiveRecord: 24.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-10 09:10:40 -0800
+Processing by BoxUsersController#index as HTML
+  [1m[35mBoxUser Load (0.1ms)[0m  SELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1  [["id", 46], ["client_index", "LNObI7dmL6nqUcyYy3ajwFNHmpholj4cB9JnfVo_JEOSfu7NoITsTcloF-8X_M5uOQ03u1JaTyWpUpJSXpCTDg"]]
+  Rendered box_users/_form.html.erb (0.9ms)
+  Rendered box_users/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 12ms (Views: 10.9ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/box_users" for 127.0.0.1 at 2016-02-10 09:10:42 -0800
+Processing by BoxUsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"i9UtRBULsqeOB1/MqAiFksb/SHqTSSET5BTk/FjuTdVuPdqcWjXToqygX/RLkez/RknHszh6571n55lB2I+i7Q==", "box_user"=>{"client_id"=>"324234", "client_secret"=>"234324"}, "commit"=>"Submit"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "box_users" ("client_id", "client_secret", "client_index", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["client_id", "324234"], ["client_secret", "234324"], ["client_index", "lt9h1AMoJZ3JV_D-a7cbIycOg9CduJDkblQEgAlpvlFr51-tnxriLWwwMIu6T_uVaYCW_KXl_CaorzoPoJH36g"], ["created_at", "2016-02-10 17:10:42.629242"], ["updated_at", "2016-02-10 17:10:42.629242"]]
+  [1m[36m (44.3ms)[0m  [1mcommit transaction[0m
+Redirected to https://app.box.com/api/oauth2/authorize?response_type=code&redirect_uri=http://localhost:3000/box_users/oauth/validate/47&client_id=324234&state=lt9h1AMoJZ3JV_D-a7cbIycOg9CduJDkblQEgAlpvlFr51-tnxriLWwwMIu6T_uVaYCW_KXl_CaorzoPoJH36g
+Completed 302 Found in 47ms (ActiveRecord: 44.6ms)
+
+
+Started POST "/box_users" for 127.0.0.1 at 2016-02-10 09:10:52 -0800
+Processing by BoxUsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"i9UtRBULsqeOB1/MqAiFksb/SHqTSSET5BTk/FjuTdVuPdqcWjXToqygX/RLkez/RknHszh6571n55lB2I+i7Q==", "box_user"=>{"client_id"=>"324234", "client_secret"=>"234324"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "box_users" ("client_id", "client_secret", "client_index", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["client_id", "324234"], ["client_secret", "234324"], ["client_index", "kemg4E-FbcrV_-uMsPhpPAaH6E6iLGMkgC6OOKNylkaUYTHUD7_qQZjY52xL36gYb4R7G1pWynovu1SDz20-Pw"], ["created_at", "2016-02-10 17:10:52.451514"], ["updated_at", "2016-02-10 17:10:52.451514"]]
+  [1m[35m (37.2ms)[0m  commit transaction
+Redirected to https://app.box.com/api/oauth2/authorize?response_type=code&redirect_uri=http://localhost:3000/box_users/oauth/validate/48&client_id=324234&state=kemg4E-FbcrV_-uMsPhpPAaH6E6iLGMkgC6OOKNylkaUYTHUD7_qQZjY52xL36gYb4R7G1pWynovu1SDz20-Pw
+Completed 302 Found in 41ms (ActiveRecord: 37.6ms)
+
+
+Started POST "/box_users" for 127.0.0.1 at 2016-02-10 09:10:58 -0800
+Processing by BoxUsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"i9UtRBULsqeOB1/MqAiFksb/SHqTSSET5BTk/FjuTdVuPdqcWjXToqygX/RLkez/RknHszh6571n55lB2I+i7Q==", "box_user"=>{"client_id"=>"88rdsgt80wz1xint4fj9nze08ytu0pv9", "client_secret"=>"1TCbl4ijHsdOGVOdQYdSUKRsVLDuvvQ8"}, "commit"=>"Submit"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "box_users" ("client_id", "client_secret", "client_index", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["client_id", "88rdsgt80wz1xint4fj9nze08ytu0pv9"], ["client_secret", "1TCbl4ijHsdOGVOdQYdSUKRsVLDuvvQ8"], ["client_index", "2LjWN3NJq3DMaNdWTmUPUO82qpclXlXhzzWvg3AOzmRv3-PiFeGLIs5a774TH1Sz7pfI_h_IylEkKfDMMZ00fg"], ["created_at", "2016-02-10 17:10:58.366161"], ["updated_at", "2016-02-10 17:10:58.366161"]]
+  [1m[36m (28.1ms)[0m  [1mcommit transaction[0m
+Redirected to https://app.box.com/api/oauth2/authorize?response_type=code&redirect_uri=http://localhost:3000/box_users/oauth/validate/49&client_id=88rdsgt80wz1xint4fj9nze08ytu0pv9&state=2LjWN3NJq3DMaNdWTmUPUO82qpclXlXhzzWvg3AOzmRv3-PiFeGLIs5a774TH1Sz7pfI_h_IylEkKfDMMZ00fg
+Completed 302 Found in 35ms (ActiveRecord: 29.0ms)
+
+
+Started GET "/box_users/oauth/validate/49?state=2LjWN3NJq3DMaNdWTmUPUO82qpclXlXhzzWvg3AOzmRv3-PiFeGLIs5a774TH1Sz7pfI_h_IylEkKfDMMZ00fg&code=a2wRJrAcIxvXFwdq1mIPjrnfN6Lbna0d" for 127.0.0.1 at 2016-02-10 09:11:00 -0800
+Processing by BoxUsersController#oauth_validate as HTML
+  Parameters: {"state"=>"2LjWN3NJq3DMaNdWTmUPUO82qpclXlXhzzWvg3AOzmRv3-PiFeGLIs5a774TH1Sz7pfI_h_IylEkKfDMMZ00fg", "code"=>"a2wRJrAcIxvXFwdq1mIPjrnfN6Lbna0d", "id"=>"49"}
+  [1m[35mBoxUser Load (0.1ms)[0m  SELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1  [["id", 49], ["client_index", "2LjWN3NJq3DMaNdWTmUPUO82qpclXlXhzzWvg3AOzmRv3-PiFeGLIs5a774TH1Sz7pfI_h_IylEkKfDMMZ00fg"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1[0m  [["id", "49"], ["client_index", "2LjWN3NJq3DMaNdWTmUPUO82qpclXlXhzzWvg3AOzmRv3-PiFeGLIs5a774TH1Sz7pfI_h_IylEkKfDMMZ00fg"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "box_users" SET "access_token" = ?, "updated_at" = ? WHERE "box_users"."id" = ?[0m  [["access_token", "dp4sfZUqRvpnn2lGhl7VibpNntpJ3pLS"], ["updated_at", "2016-02-10 17:11:01.320907"], ["id", 49]]
+  [1m[35m (21.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 509ms (ActiveRecord: 22.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-10 09:11:01 -0800
+Processing by BoxUsersController#index as HTML
+  [1m[36mBoxUser Load (0.1ms)[0m  [1mSELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1[0m  [["id", 49], ["client_index", "2LjWN3NJq3DMaNdWTmUPUO82qpclXlXhzzWvg3AOzmRv3-PiFeGLIs5a774TH1Sz7pfI_h_IylEkKfDMMZ00fg"]]
+Redirected to http://localhost:3000/box_users/manage/49
+Filter chain halted as :check_session rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/box_users/manage/49" for 127.0.0.1 at 2016-02-10 09:11:01 -0800
+Processing by BoxUsersController#manage as HTML
+  Parameters: {"id"=>"49"}
+  [1m[35mBoxUser Load (0.1ms)[0m  SELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1  [["id", 49], ["client_index", "2LjWN3NJq3DMaNdWTmUPUO82qpclXlXhzzWvg3AOzmRv3-PiFeGLIs5a774TH1Sz7pfI_h_IylEkKfDMMZ00fg"]]
+  Rendered box_users/manage.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/box_users/manage/49/folder/0" for 127.0.0.1 at 2016-02-10 09:11:02 -0800
+Processing by BoxUsersController#folder as HTML
+  Parameters: {"id"=>"49", "folder_id"=>"0"}
+  [1m[36mBoxUser Load (0.1ms)[0m  [1mSELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1[0m  [["id", 49], ["client_index", "2LjWN3NJq3DMaNdWTmUPUO82qpclXlXhzzWvg3AOzmRv3-PiFeGLIs5a774TH1Sz7pfI_h_IylEkKfDMMZ00fg"]]
+  Rendered box_users/folder.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 537ms (Views: 7.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/box_users/manage/49/folder/attributes/52781709161" for 127.0.0.1 at 2016-02-10 09:11:04 -0800
+Processing by BoxUsersController#attributes as HTML
+  Parameters: {"id"=>"49", "folder_id"=>"52781709161"}
+  [1m[35mBoxUser Load (0.1ms)[0m  SELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1  [["id", 49], ["client_index", "2LjWN3NJq3DMaNdWTmUPUO82qpclXlXhzzWvg3AOzmRv3-PiFeGLIs5a774TH1Sz7pfI_h_IylEkKfDMMZ00fg"]]
+  Rendered box_users/attributes.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 296ms (Views: 13.0ms | ActiveRecord: 0.1ms)
+
+
+Started DELETE "/box_users/49" for 127.0.0.1 at 2016-02-10 09:11:08 -0800
+Processing by BoxUsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"RyyQkZg2coQATK0WrkA2z5nHr0JRxTmr8djMqRyFrMuixGdJ1wgTgSLrrS5N2V+iGXEgi/r2/wVyK7EUnORD8w==", "id"=>"49"}
+  [1m[36mBoxUser Load (0.1ms)[0m  [1mSELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? LIMIT 1[0m  [["id", 49]]
+  [1m[35mBoxUser Load (0.0ms)[0m  SELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1  [["id", 49], ["client_index", "2LjWN3NJq3DMaNdWTmUPUO82qpclXlXhzzWvg3AOzmRv3-PiFeGLIs5a774TH1Sz7pfI_h_IylEkKfDMMZ00fg"]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "box_users" WHERE "box_users"."id" = ?  [["id", 49]]
+  [1m[36m (36.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 38ms (ActiveRecord: 36.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-10 09:11:08 -0800
+Processing by BoxUsersController#index as HTML
+  [1m[35mBoxUser Load (0.1ms)[0m  SELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1  [["id", 49], ["client_index", "2LjWN3NJq3DMaNdWTmUPUO82qpclXlXhzzWvg3AOzmRv3-PiFeGLIs5a774TH1Sz7pfI_h_IylEkKfDMMZ00fg"]]
+  Rendered box_users/_form.html.erb (0.4ms)
+  Rendered box_users/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 7ms (Views: 6.5ms | ActiveRecord: 0.1ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-10 09:14:52 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by BoxUsersController#index as HTML
+  [1m[35mBoxUser Load (0.1ms)[0m  SELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1  [["id", 49], ["client_index", "2LjWN3NJq3DMaNdWTmUPUO82qpclXlXhzzWvg3AOzmRv3-PiFeGLIs5a774TH1Sz7pfI_h_IylEkKfDMMZ00fg"]]
+  Rendered box_users/_form.html.erb (3.6ms)
+  Rendered box_users/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 116ms (Views: 104.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/box_users" for 127.0.0.1 at 2016-02-10 09:14:57 -0800
+Processing by BoxUsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yYxzrkpsvAoUAspA+3l4r3Z9I8Xoy9OQcr5vCUkIZGYsZIR2BVLdDzalyngY4BHC9susDEP4FT7xTRK0yWmLXg==", "box_user"=>{"client_id"=>"88rdsgt80wz1xint4fj9nze08ytu0pv9", "client_secret"=>"1TCbl4ijHsdOGVOdQYdSUKRsVLDuvvQ8"}, "commit"=>"Submit"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "box_users" ("client_id", "client_secret", "client_index", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["client_id", "88rdsgt80wz1xint4fj9nze08ytu0pv9"], ["client_secret", "1TCbl4ijHsdOGVOdQYdSUKRsVLDuvvQ8"], ["client_index", "tv3DcQc72owTvki18fgBmRjSx8Y_-e2DCCfenlbyUU4UA1kmarUTRU4T_7T34BL01NPwbpCGZrQI5KxDFRjmeQ"], ["created_at", "2016-02-10 17:14:57.750457"], ["updated_at", "2016-02-10 17:14:57.750457"]]
+  [1m[36m (24.0ms)[0m  [1mcommit transaction[0m
+Redirected to https://app.box.com/api/oauth2/authorize?response_type=code&redirect_uri=http://localhost:3000/box_users/oauth/validate/50&client_id=88rdsgt80wz1xint4fj9nze08ytu0pv9&state=tv3DcQc72owTvki18fgBmRjSx8Y_-e2DCCfenlbyUU4UA1kmarUTRU4T_7T34BL01NPwbpCGZrQI5KxDFRjmeQ
+Completed 302 Found in 29ms (ActiveRecord: 24.8ms)
+
+
+Started GET "/box_users/oauth/validate/50?state=tv3DcQc72owTvki18fgBmRjSx8Y_-e2DCCfenlbyUU4UA1kmarUTRU4T_7T34BL01NPwbpCGZrQI5KxDFRjmeQ&code=5yQjMcD7g9FCeo2PFFdy4A3trSVtxBIY" for 127.0.0.1 at 2016-02-10 09:15:00 -0800
+Processing by BoxUsersController#oauth_validate as HTML
+  Parameters: {"state"=>"tv3DcQc72owTvki18fgBmRjSx8Y_-e2DCCfenlbyUU4UA1kmarUTRU4T_7T34BL01NPwbpCGZrQI5KxDFRjmeQ", "code"=>"5yQjMcD7g9FCeo2PFFdy4A3trSVtxBIY", "id"=>"50"}
+  [1m[35mBoxUser Load (0.1ms)[0m  SELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1  [["id", 50], ["client_index", "tv3DcQc72owTvki18fgBmRjSx8Y_-e2DCCfenlbyUU4UA1kmarUTRU4T_7T34BL01NPwbpCGZrQI5KxDFRjmeQ"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1[0m  [["id", "50"], ["client_index", "tv3DcQc72owTvki18fgBmRjSx8Y_-e2DCCfenlbyUU4UA1kmarUTRU4T_7T34BL01NPwbpCGZrQI5KxDFRjmeQ"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "box_users" SET "access_token" = ?, "updated_at" = ? WHERE "box_users"."id" = ?[0m  [["access_token", "Vzanb3eKkyaGKHLw4dA1bTB85mfJ8Znr"], ["updated_at", "2016-02-10 17:15:01.229887"], ["id", 50]]
+  [1m[35m (21.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 951ms (ActiveRecord: 22.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-10 09:15:01 -0800
+Processing by BoxUsersController#index as HTML
+  [1m[36mBoxUser Load (0.1ms)[0m  [1mSELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1[0m  [["id", 50], ["client_index", "tv3DcQc72owTvki18fgBmRjSx8Y_-e2DCCfenlbyUU4UA1kmarUTRU4T_7T34BL01NPwbpCGZrQI5KxDFRjmeQ"]]
+Redirected to http://localhost:3000/box_users/manage/50
+Filter chain halted as :check_session rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/box_users/manage/50" for 127.0.0.1 at 2016-02-10 09:15:01 -0800
+Processing by BoxUsersController#manage as HTML
+  Parameters: {"id"=>"50"}
+  [1m[35mBoxUser Load (0.1ms)[0m  SELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1  [["id", 50], ["client_index", "tv3DcQc72owTvki18fgBmRjSx8Y_-e2DCCfenlbyUU4UA1kmarUTRU4T_7T34BL01NPwbpCGZrQI5KxDFRjmeQ"]]
+  Rendered box_users/manage.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/box_users/manage/50/folder/0" for 127.0.0.1 at 2016-02-10 09:15:02 -0800
+Processing by BoxUsersController#folder as HTML
+  Parameters: {"id"=>"50", "folder_id"=>"0"}
+  [1m[36mBoxUser Load (0.1ms)[0m  [1mSELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1[0m  [["id", 50], ["client_index", "tv3DcQc72owTvki18fgBmRjSx8Y_-e2DCCfenlbyUU4UA1kmarUTRU4T_7T34BL01NPwbpCGZrQI5KxDFRjmeQ"]]
+  Rendered box_users/folder.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 556ms (Views: 17.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/box_users/manage/50/folder/attributes/52781704753" for 127.0.0.1 at 2016-02-10 09:15:03 -0800
+Processing by BoxUsersController#attributes as HTML
+  Parameters: {"id"=>"50", "folder_id"=>"52781704753"}
+  [1m[35mBoxUser Load (0.1ms)[0m  SELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1  [["id", 50], ["client_index", "tv3DcQc72owTvki18fgBmRjSx8Y_-e2DCCfenlbyUU4UA1kmarUTRU4T_7T34BL01NPwbpCGZrQI5KxDFRjmeQ"]]
+  Rendered box_users/attributes.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 228ms (Views: 13.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/box_users/manage/50/folder/attributes/52662169605" for 127.0.0.1 at 2016-02-10 09:15:05 -0800
+Processing by BoxUsersController#attributes as HTML
+  Parameters: {"id"=>"50", "folder_id"=>"52662169605"}
+  [1m[36mBoxUser Load (0.1ms)[0m  [1mSELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1[0m  [["id", 50], ["client_index", "tv3DcQc72owTvki18fgBmRjSx8Y_-e2DCCfenlbyUU4UA1kmarUTRU4T_7T34BL01NPwbpCGZrQI5KxDFRjmeQ"]]
+  Rendered box_users/attributes.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 232ms (Views: 14.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/box_users/manage/50/folder/attributes/52781705709" for 127.0.0.1 at 2016-02-10 09:15:10 -0800
+Processing by BoxUsersController#attributes as HTML
+  Parameters: {"id"=>"50", "folder_id"=>"52781705709"}
+  [1m[35mBoxUser Load (0.1ms)[0m  SELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1  [["id", 50], ["client_index", "tv3DcQc72owTvki18fgBmRjSx8Y_-e2DCCfenlbyUU4UA1kmarUTRU4T_7T34BL01NPwbpCGZrQI5KxDFRjmeQ"]]
+  Rendered box_users/attributes.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 243ms (Views: 13.4ms | ActiveRecord: 0.1ms)
+
+
+Started DELETE "/box_users/50" for 127.0.0.1 at 2016-02-10 09:15:15 -0800
+Processing by BoxUsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ahLrapzHWZ59S4vWS9nwsb0xZy0Zu3ogNxc8nder3mWP+hyy0/k4m1/si+6oQJncPYfo5LKIvI605EEgV8oxXQ==", "id"=>"50"}
+  [1m[36mBoxUser Load (0.1ms)[0m  [1mSELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? LIMIT 1[0m  [["id", 50]]
+  [1m[35mBoxUser Load (0.1ms)[0m  SELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1  [["id", 50], ["client_index", "tv3DcQc72owTvki18fgBmRjSx8Y_-e2DCCfenlbyUU4UA1kmarUTRU4T_7T34BL01NPwbpCGZrQI5KxDFRjmeQ"]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "box_users" WHERE "box_users"."id" = ?  [["id", 50]]
+  [1m[36m (25.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 30ms (ActiveRecord: 26.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-10 09:15:15 -0800
+Processing by BoxUsersController#index as HTML
+  [1m[35mBoxUser Load (0.1ms)[0m  SELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1  [["id", 50], ["client_index", "tv3DcQc72owTvki18fgBmRjSx8Y_-e2DCCfenlbyUU4UA1kmarUTRU4T_7T34BL01NPwbpCGZrQI5KxDFRjmeQ"]]
+  Rendered box_users/_form.html.erb (0.5ms)
+  Rendered box_users/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.1ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DropUsersTable (20160210171817)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160210171817"]]
+  [1m[35m (24.7ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.0ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (25.6ms)[0m  [1mCREATE TABLE "box_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "client_id" varchar, "client_secret" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "client_index" varchar, "access_token" varchar) [0m
+  [1m[35m (23.5ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (22.1ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (23.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (25.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (23.5ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (21.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160210171817')
+  [1m[36m (23.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160209233452')[0m
+  [1m[35m (24.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160208201458')
+  [1m[36m (23.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160209035911')[0m
+  [1m[35m (22.0ms)[0m  CREATE TABLE "box_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "client_id" varchar, "client_secret" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "client_index" varchar, "access_token" varchar) 
+  [1m[36m (23.7ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (31.0ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (25.3ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (23.6ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (22.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (23.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160210171817')[0m
+  [1m[35m (25.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160209233452')
+  [1m[36m (23.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160208201458')[0m
+  [1m[35m (22.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160209035911')
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (21.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (25.4ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateBoxUsers (20160208201458)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "box_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "client_id" varchar, "client_secret" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160208201458"]]
+  [1m[35m (25.1ms)[0m  commit transaction
+Migrating to AddClientIndexKeyToBoxUsers (20160209035911)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "box_users" ADD "client_index" varchar
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160209035911"]]
+  [1m[35m (31.3ms)[0m  commit transaction
+Migrating to AddAccessTokenToBoxUser (20160209233452)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "box_users" ADD "access_token" varchar
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160209233452"]]
+  [1m[35m (22.0ms)[0m  commit transaction
+Migrating to DropUsersTable (20160210171817)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "users"
+SQLite3::SQLException: no such table: users: DROP TABLE "users"
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36m (22.3ms)[0m  [1mCREATE TABLE "box_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "client_id" varchar, "client_secret" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "client_index" varchar, "access_token" varchar) [0m
+  [1m[35m (23.1ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (25.5ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (22.9ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (21.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (23.4ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (25.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160210171817')
+  [1m[36m (23.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160209233452')[0m
+  [1m[35m (31.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160208201458')
+  [1m[36m (22.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160209035911')[0m
+  [1m[35m (24.4ms)[0m  CREATE TABLE "box_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "client_id" varchar, "client_secret" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "client_index" varchar, "access_token" varchar) 
+  [1m[36m (30.7ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (29.9ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (25.1ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (22.9ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (23.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (25.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160210171817')[0m
+  [1m[35m (23.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160209233452')
+  [1m[36m (22.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160208201458')[0m
+  [1m[35m (22.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160209035911')
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (24.7ms)[0m  [1mCREATE TABLE "box_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "client_id" varchar, "client_secret" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "client_index" varchar, "access_token" varchar) [0m
+  [1m[35m (22.0ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (22.8ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (25.3ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (24.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (22.4ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (22.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160210171817')
+  [1m[36m (25.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160209233452')[0m
+  [1m[35m (24.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160208201458')
+  [1m[36m (22.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160209035911')[0m
+  [1m[35m (22.9ms)[0m  CREATE TABLE "box_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "client_id" varchar, "client_secret" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "client_index" varchar, "access_token" varchar) 
+  [1m[36m (25.4ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (31.3ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (24.1ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (22.3ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (22.7ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (25.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160210171817')[0m
+  [1m[35m (24.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160209233452')
+  [1m[36m (22.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160208201458')[0m
+  [1m[35m (22.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160209035911')
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DropUsersTable (20160210172048)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160210172048"]]
+  [1m[36m (22.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (24.9ms)[0m  [1mCREATE TABLE "box_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "client_id" varchar, "client_secret" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "client_index" varchar, "access_token" varchar) [0m
+  [1m[35m (22.2ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (22.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (25.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160210172048')
+  [1m[36m (24.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160209233452')[0m
+  [1m[35m (22.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160208201458')
+  [1m[36m (22.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160209035911')[0m
+  [1m[35m (25.5ms)[0m  CREATE TABLE "box_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "client_id" varchar, "client_secret" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "client_index" varchar, "access_token" varchar) 
+  [1m[36m (24.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (22.3ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (22.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160210172048')[0m
+  [1m[35m (25.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160209233452')
+  [1m[36m (31.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160208201458')[0m
+  [1m[35m (19.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160209035911')
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-10 09:22:11 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by BoxUsersController#index as HTML
+  [1m[35mBoxUser Load (0.1ms)[0m  SELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1  [["id", 50], ["client_index", "tv3DcQc72owTvki18fgBmRjSx8Y_-e2DCCfenlbyUU4UA1kmarUTRU4T_7T34BL01NPwbpCGZrQI5KxDFRjmeQ"]]
+  Rendered box_users/_form.html.erb (3.6ms)
+  Rendered box_users/index.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 112ms (Views: 101.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/box_users" for 127.0.0.1 at 2016-02-10 09:22:18 -0800
+Processing by BoxUsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9+X3/46pcAjkPUBh8P5MgQzsEeN2zs0LXx+LDJxoOroSDQAnwZcRDcaaQFkTZyXsjFqeKt39C6Xc7PaxHAnVgg==", "box_user"=>{"client_id"=>"88rdsgt80wz1xint4fj9nze08ytu0pv9", "client_secret"=>"1TCbl4ijHsdOGVOdQYdSUKRsVLDuvvQ8"}, "commit"=>"Submit"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "box_users" ("client_id", "client_secret", "client_index", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["client_id", "88rdsgt80wz1xint4fj9nze08ytu0pv9"], ["client_secret", "1TCbl4ijHsdOGVOdQYdSUKRsVLDuvvQ8"], ["client_index", "r1sgAOPWhf58VFtMJuFHm44NeZZwRqISlwB8qzjj2-40pDoG0xJB5aDNCKIPybPjfPU60iVkjTRpIeOHMkFVKw"], ["created_at", "2016-02-10 17:22:18.646211"], ["updated_at", "2016-02-10 17:22:18.646211"]]
+  [1m[36m (25.6ms)[0m  [1mcommit transaction[0m
+Redirected to https://app.box.com/api/oauth2/authorize?response_type=code&redirect_uri=http://localhost:3000/box_users/oauth/validate/1&client_id=88rdsgt80wz1xint4fj9nze08ytu0pv9&state=r1sgAOPWhf58VFtMJuFHm44NeZZwRqISlwB8qzjj2-40pDoG0xJB5aDNCKIPybPjfPU60iVkjTRpIeOHMkFVKw
+Completed 302 Found in 31ms (ActiveRecord: 26.2ms)
+
+
+Started GET "/box_users/oauth/validate/1?state=r1sgAOPWhf58VFtMJuFHm44NeZZwRqISlwB8qzjj2-40pDoG0xJB5aDNCKIPybPjfPU60iVkjTRpIeOHMkFVKw&code=Gx0Zz6zQJBqhn4yu8gD2Xx0rVumYTyAy" for 127.0.0.1 at 2016-02-10 09:22:23 -0800
+Processing by BoxUsersController#oauth_validate as HTML
+  Parameters: {"state"=>"r1sgAOPWhf58VFtMJuFHm44NeZZwRqISlwB8qzjj2-40pDoG0xJB5aDNCKIPybPjfPU60iVkjTRpIeOHMkFVKw", "code"=>"Gx0Zz6zQJBqhn4yu8gD2Xx0rVumYTyAy", "id"=>"1"}
+  [1m[35mBoxUser Load (0.1ms)[0m  SELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1  [["id", 1], ["client_index", "r1sgAOPWhf58VFtMJuFHm44NeZZwRqISlwB8qzjj2-40pDoG0xJB5aDNCKIPybPjfPU60iVkjTRpIeOHMkFVKw"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1[0m  [["id", "1"], ["client_index", "r1sgAOPWhf58VFtMJuFHm44NeZZwRqISlwB8qzjj2-40pDoG0xJB5aDNCKIPybPjfPU60iVkjTRpIeOHMkFVKw"]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "box_users" SET "access_token" = ?, "updated_at" = ? WHERE "box_users"."id" = ?[0m  [["access_token", "wd2jizN9H0vhXzi66pCoKzfW803G2JK4"], ["updated_at", "2016-02-10 17:22:23.756592"], ["id", 1]]
+  [1m[35m (24.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 601ms (ActiveRecord: 24.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-10 09:22:23 -0800
+Processing by BoxUsersController#index as HTML
+  [1m[36mBoxUser Load (0.1ms)[0m  [1mSELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1[0m  [["id", 1], ["client_index", "r1sgAOPWhf58VFtMJuFHm44NeZZwRqISlwB8qzjj2-40pDoG0xJB5aDNCKIPybPjfPU60iVkjTRpIeOHMkFVKw"]]
+Redirected to http://localhost:3000/box_users/manage/1
+Filter chain halted as :check_session rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/box_users/manage/1" for 127.0.0.1 at 2016-02-10 09:22:23 -0800
+Processing by BoxUsersController#manage as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mBoxUser Load (0.0ms)[0m  SELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1  [["id", 1], ["client_index", "r1sgAOPWhf58VFtMJuFHm44NeZZwRqISlwB8qzjj2-40pDoG0xJB5aDNCKIPybPjfPU60iVkjTRpIeOHMkFVKw"]]
+  Rendered box_users/manage.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/box_users/manage/1/folder/0" for 127.0.0.1 at 2016-02-10 09:22:25 -0800
+Processing by BoxUsersController#folder as HTML
+  Parameters: {"id"=>"1", "folder_id"=>"0"}
+  [1m[36mBoxUser Load (0.1ms)[0m  [1mSELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1[0m  [["id", 1], ["client_index", "r1sgAOPWhf58VFtMJuFHm44NeZZwRqISlwB8qzjj2-40pDoG0xJB5aDNCKIPybPjfPU60iVkjTRpIeOHMkFVKw"]]
+  Rendered box_users/folder.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 729ms (Views: 13.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/box_users/manage/1/folder/attributes/52781718201" for 127.0.0.1 at 2016-02-10 09:22:27 -0800
+Processing by BoxUsersController#attributes as HTML
+  Parameters: {"id"=>"1", "folder_id"=>"52781718201"}
+  [1m[35mBoxUser Load (0.2ms)[0m  SELECT  "box_users".* FROM "box_users" WHERE "box_users"."id" = ? AND "box_users"."client_index" = ?  ORDER BY "box_users"."id" ASC LIMIT 1  [["id", 1], ["client_index", "r1sgAOPWhf58VFtMJuFHm44NeZZwRqISlwB8qzjj2-40pDoG0xJB5aDNCKIPybPjfPU60iVkjTRpIeOHMkFVKw"]]
+  Rendered box_users/attributes.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 351ms (Views: 16.2ms | ActiveRecord: 0.2ms)
