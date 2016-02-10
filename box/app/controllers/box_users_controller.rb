@@ -1,9 +1,5 @@
 require 'securerandom'
 
-      # puts @box_user.client_id
-      # puts @box_user.client_index
-      # puts @box_user.client_secret
-
 class BoxUsersController < ApplicationController
   before_action :set_box_user, only: [:show, :edit, :update, :destroy]
   before_action :check_session, only: [:index]
@@ -12,8 +8,20 @@ class BoxUsersController < ApplicationController
     @box_user = BoxUser.new
   end
 
+  def folder
+    validate_session
+    unless @box_user.nil?
+      @box_user.request_folder params[:folder_id]
+      # get https://api.box.com/2.0/folders/FOLDER_ID \ -H "Authorization: Bearer ACCESS_TOKEN"
+      # display results
+      @box_user
+    end
+# curl https://api.box.com/2.0/folders/FOLDER_ID \
+# -H "Authorization: Bearer ACCESS_TOKEN"
+  end
+
   def manage
-    @box_user = BoxUser.where(:id => params[:key], :client_index => params[:value]).first
+    @box_user = BoxUser.where(:id => params[:id], :client_index => session[:client_index]).first
     if @box_user.nil?
       reset_session
       redirect_to action: "index"
@@ -22,13 +30,24 @@ class BoxUsersController < ApplicationController
     end
   end
 
+  def oauth_validate
+    if validate_security_token
+      @box_user = BoxUser.where(:id => params[:id], :client_index => params[:state]).first #
+      @box_user.request_access_token params[:code]
+      @box_user.save
+    else
+      reset_session
+    end
+      redirect_to action: "index"
+  end
+
   def create
     @box_user = BoxUser.new(box_user_params)
     @box_user.client_index = SecureRandom.urlsafe_base64(n=64, padding=false) # should me moved to BoxUser model
     respond_to do |format|
       if @box_user.save
         set_session
-        format.html { redirect_to action: "manage", key: @box_user.id, value: @box_user.client_index }
+        format.html { redirect_to @box_user.oauth_url }
         format.json { render :manage, status: :created, location: @box_user }
       else
         format.html { render action: :index }
@@ -38,7 +57,7 @@ class BoxUsersController < ApplicationController
   end
 
   def destroy
-    @box_user = BoxUser.where(:id => params[:key], :client_index => session[:client_index]).first # should be moved to BoxUserModel
+    @box_user = BoxUser.where(:id => params[:id], :client_index => session[:client_index]).first # should be moved to BoxUserModel
     if @box_user.nil?
       reset_session
       redirect_to action: "index"
@@ -53,11 +72,23 @@ class BoxUsersController < ApplicationController
 
   private
 
+    def validate_security_token
+      !BoxUser.where(:id => params[:id], :client_index => params[:state]).first.nil?
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def check_session
-      @box_user = BoxUser.where(:id => session[:box_id], :client_index => session[:client_index]).first # should be moved to BoxUserModel
+      @box_user = BoxUser.get_from(session)
       unless @box_user.nil? 
-        redirect_to action: "manage", key: @box_user.id, value: @box_user.client_index
+        redirect_to action: "manage", id: @box_user.id
+      end
+    end
+
+    def validate_session
+      @box_user = BoxUser.get_from(session)
+      if @box_user.nil?
+        reset_session
+        redirect_to acition: "index"
       end
     end
 
