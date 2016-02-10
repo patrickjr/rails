@@ -7,6 +7,7 @@ class BoxUsersController < ApplicationController
   def index
     @box_user = BoxUser.new
   end
+
   def attributes
     validate_session
     unless @box_user.nil?
@@ -14,16 +15,17 @@ class BoxUsersController < ApplicationController
       @box_user
     end
   end
+
   def folder
     validate_session
     unless @box_user.nil?
-      @box_user.request_folder params[:folder_id]
+      @box_user.request_folder_recursively params[:folder_id]
       @box_user
     end
   end
 
   def manage
-    @box_user = BoxUser.where(:id => params[:id], :client_index => session[:client_index]).first
+    @box_user = BoxUser.where(:id => params[:id], :client_index => session[:client_index]).first # should be moved
     if @box_user.nil?
       reset_session
       redirect_to action: "index"
@@ -34,7 +36,7 @@ class BoxUsersController < ApplicationController
 
   def oauth_validate
     if validate_security_token
-      @box_user = BoxUser.where(:id => params[:id], :client_index => params[:state]).first #
+      @box_user = BoxUser.where(:id => params[:id], :client_index => params[:state]).first # should be moved
       @box_user.request_access_token params[:code]
       @box_user.save
     else
@@ -75,7 +77,7 @@ class BoxUsersController < ApplicationController
   private
 
     def validate_security_token
-      !BoxUser.where(:id => params[:id], :client_index => params[:state]).first.nil?
+      !BoxUser.where(:id => params[:id], :client_index => params[:state]).first.nil? # should be moved
     end
 
     # Use callbacks to share common setup or constraints between actions.
